@@ -12,7 +12,7 @@ public:
 	int sum(int arr[], int n) {
 	    // code here
 	    if(n==0){
-	        return 0;
+	        return n;
 	    }
 	    return arr[n-1] + sum(arr,n-1);
 	}
