@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution{   
 public:
-    bool subsetSum(vector<int>arr, int n, int sum, vector<vector<int>>&dp){
+    bool subsetSum(vector<int>arr, int n, int sum, vector<vector<int>>&dp){ 
         if(dp[n][sum] != -1) return dp[n][sum];
         
         if(arr[n-1] <= sum){
@@ -23,12 +23,16 @@ public:
         int n = arr.size();
         vector<vector<int>> dp(n+1, vector<int>(sum+1, -1));
         
+        
+        // Base case: If no elements are included, no positive sum can be achieved
         for(int i=0; i<=sum; i++){
             dp[0][i] = false;
         }
+        // Base case: If sum is 0, it can always be achieved with empty subset
         for(int i=0; i<=n; i++){
             dp[i][0] = true;
         }
+        
         
         return subsetSum(arr, n, sum, dp);
     }
